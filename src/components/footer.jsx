@@ -10,7 +10,7 @@ import facebook from '/images/facebook.svg'
 function Footer(){
     return (
         <>
-        <div className="bg-black">
+        <div className="bg-black pb-4">
          <div className="mt-10 flex flex-row w-11/12 m-auto bg-black text-white opacity-90 py-7" >
             <div className="w-1/5">
                 <h1 className="text-xl font-semibold">Exclusive</h1>

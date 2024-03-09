@@ -4,6 +4,7 @@ import BrowserCategory from "./categories/browse";
 import BestSelling from "./categories/bestSelling";
 import Explore from "./categories/explore";
 import NewArrivals from "./categories/newArrival";
+import Services from "./categories/services";
 
 function MainContent() {
   return (
@@ -44,6 +45,9 @@ function MainContent() {
       <div className="ml-28 my-28">
         <NewArrivals />
         <div></div>
+      </div>
+      <div>
+        <Services />
       </div>
      
     </>
