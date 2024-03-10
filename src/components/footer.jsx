@@ -11,12 +11,12 @@ function Footer(){
     return (
         <>
         <div className="bg-black pb-4">
-         <div className="mt-10 flex flex-row w-11/12 m-auto bg-black text-white opacity-90 py-7" >
+         <div className="mt-10 flex flex-row w-11/12 m-auto bg-black text-white opacity-90 py-7 px-10" >
             <div className="w-1/5">
-                <h1 className="text-xl font-semibold">Exclusive</h1>
+                <h1 className="text-xl font-semibold mb-5">Exclusive</h1>
                 <h2 className="text-lg">subscribe</h2>
-                <p>Get 10% off your first order</p>
-                <label className="flex flex-row w-56 items-center border-2 border-white mt-4 rounded-md">
+                <p className="mt-3">Get 10% off your first order</p>
+                <label className="flex flex-row w-56 items-center border-2 border-white mt-4 rounded-md justify-between p-1">
                     <input type="text" placeholder="Enter your email " className="outline-none   bg-black text-white p-1"/>
                      <img src={send} alt="This a send icon " className="h-8 -ml-2 bg-white rounded-md"/>
                 </label>

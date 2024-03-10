@@ -25,15 +25,12 @@ function MainContent() {
       </div>
       <div className="ml-28 my-28">
         <FlashSales />
-        <div></div>
       </div>
       <div className="ml-28 my-28">
         <BrowserCategory />
-        <div></div>
       </div>
       <div className="ml-28 my-28">
         <BestSelling />
-        <div></div>
       </div>
       <div>
 
@@ -42,9 +39,8 @@ function MainContent() {
         <Explore />
         <div></div>
       </div>
-      <div className="ml-28 my-28">
+      <div className="ml-28 mr-36 mt-28 mb-48">
         <NewArrivals />
-        <div></div>
       </div>
       <div>
         <Services />
