@@ -10,7 +10,7 @@ function MainContent() {
   return (
     <>
       <div className="flex fle-row">
-        <div className="w-1/4 border-r-2 border-r-slate-500 flex flex-col pl-28">
+        <div className="w-1/4 border-r-2 border-r-slate-500 flex flex-col pl-28  mr-1">
           <div className="mb-1.5 mt-12">Woman's fashion</div>
           <div className="my-1.5">Men's fashion</div>
           <div className="my-1.5">Electronics</div>
@@ -21,7 +21,16 @@ function MainContent() {
           <div className="my-1.5">Gorceries and pests</div>
           <div className="mt-1.5 mb-4">Healthy and beauty</div>
         </div>
-        <div></div>
+        <div className="bg-black w-8/12  mt-6 ml-8 relative">
+          <img src={"/products/apple-iphone-15-pro.jpg"} alt="the iphone image"  className="h-80 ml-auto mr-10 mt-8"/>
+         
+          <div className="absolute text-white top-14 left-10">
+            <span className="text-white">iPhone 14 series</span>
+            <h1 className="text-5xl font-semibold mb-1 mt-5">Up to 10%</h1>
+            <h1 className="text-5xl font-semibold mb-6">off voucher</h1>
+             <span className="border-b-2 border-b-white pb-1 text-lg">Shop now</span>
+          </div>
+        </div>
       </div>
       <div className="ml-28 my-28">
         <FlashSales />
