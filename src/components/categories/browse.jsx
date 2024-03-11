@@ -22,6 +22,56 @@ function BrowserCategory() {
           </button>
         </div>
       </div>
+      <div className=" grid grid-cols-6 gap-4 mt-8 ">
+        <div className="border-2 border-stone-300 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
+          <img
+            src={"/images/mobile-button.svg"}
+            alt="the phone icon "
+            className="w-10 mb-3"
+          />
+          <p>Phones</p>
+        </div>
+        <div className="border-2 border-gray-200 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
+          <img
+            src={"/images/computer.svg"}
+            alt="the monitor icon"
+            className="w-10 mb-3"
+          />
+          <p>Computers</p>
+        </div>
+        <div className="border-2 border-gray-200 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
+          <img
+            src={"/images/watch-smart.svg"}
+            alt="the monitor icon"
+            className="w-10 mb-3"
+          />
+          <p>smart watches</p>
+        </div>
+        <div className="border-2 border-gray-200 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
+          <img
+            src={"/images/camera.svg"}
+            alt="the camera icon"
+            className="w-10 mb-3"
+          />
+          <p>Camera</p>
+        </div>
+        <div className="border-2 border-gray-200 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
+          <img
+            src={"/images/headphones.svg"}
+            alt="the headphones icon"
+            className="w-10 mb-3"
+          />
+          <p>Headphones</p>
+        </div>
+        <div className="border-2 border-gray-200 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
+          <img
+            src={"/images/gamepad.svg"}
+            alt="the gamepad icon"
+            className="w-10 mb-3"
+          />
+          <p>Gaming</p>
+        </div>
+      </div>
     </>
   );
 }

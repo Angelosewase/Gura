@@ -26,14 +26,41 @@ function MainContent() {
       <div className="ml-28 my-28">
         <FlashSales />
       </div>
-      <div className="ml-28 my-28">
+      <div className="mx-28 my-28">
         <BrowserCategory />
       </div>
       <div className="ml-28 my-28">
         <BestSelling />
       </div>
-      <div>
-
+      <div className="ml-28 my-20 mr-40  bg-black relative">
+        <img
+          src={"/products/bluetooth speaker.webp"}
+          alt="the bluetooth speaker image"
+          className="ml-auto mr-24 h-[440px]"
+        />
+        <div className="absolute text-white bottom-20 left-16">
+          <p className="text-green-400">categories</p>
+          <h1 className="text-3xl mt-6 mb-5 font-semibold">Enhance Your <br /> Music exprience</h1>
+          <div className=" grid grid-cols-4 w-72">
+            <div className="flex flex-col  rounded-full bg-white text-black items-center align-middle w-12 h-12">
+              <h2 className="text-sm font-bold mt-1">23</h2>
+              <p className="text-xs -mt-1">hours</p>
+            </div>
+            <div className="flex flex-col  rounded-full bg-white text-black items-center align-middle w-12 h-12">
+              <h2 className="text-sm font-bold mt-1">05</h2>
+              <p className="text-xs -mt-1">Days</p>
+            </div>
+            <div className="flex flex-col  rounded-full bg-white text-black items-center align-middle w-14">
+              <h2 className="text-sm font-bold mt-1">59</h2>
+              <p className="text-xs -mt-1">minutes</p>
+            </div>
+            <div className="flex flex-col  rounded-full bg-white text-black items-center align-middle w-14 ">
+              <h2 className="text-sm font-bold mt-1">35</h2>
+              <p className="text-xs -mt-1">seconds</p>
+            </div>
+          </div>
+          <button className="w-40 h-12 bg-green-400 border-none mt-7 rounded-md">Buy now</button>
+        </div>
       </div>
       <div className="ml-28 my-28">
         <Explore />
@@ -45,7 +72,14 @@ function MainContent() {
       <div>
         <Services />
       </div>
-     
+
+      <button className="w-8 h-8 rounded-full bg-gray-100 ml-[90%]">
+        <img
+          src={"images/arrow-small-left.svg"}
+          alt="the up arrow"
+          className="w-8 rotate-90"
+        />
+      </button>
     </>
   );
 }
