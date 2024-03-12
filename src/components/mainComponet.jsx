@@ -5,6 +5,7 @@ import BestSelling from "./categories/bestSelling";
 import Explore from "./categories/explore";
 import NewArrivals from "./categories/newArrival";
 import Services from "./categories/services";
+import Product from "./product";
 
 function MainContent() {
   return (
@@ -34,6 +35,7 @@ function MainContent() {
       </div>
       <div className="ml-28 my-28">
         <FlashSales />
+        <Product />
       </div>
       <div className="mx-28 my-28">
         <BrowserCategory />
