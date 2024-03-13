@@ -3,6 +3,7 @@ import heart from'/images/heart.svg'
 import shoppingCart from '/images/shopping-cart.svg'
 import searchIcon from '/images/search.svg'
 import HeaderTop from "./headertop";
+import { Link } from "react-router-dom";
 
 function Header(){
    return (
@@ -11,10 +12,10 @@ function Header(){
       <div className="flex flex-row mt-3 w-full justify-between h-20 m-auto items-center border-b border-gray-400"  >
          <h1 className="mx-28 text-3xl font-medium">Exclusive</h1>
          <ul className="flex flex-row w-72 justify-between font-500 ">
-            <li><a href="#" className="hover:underline">Home</a></li>
+            <li><Link to="/" className="hover:underline">Home</Link></li>
             <li><a href="#" className="hover:underline">contact</a></li>
             <li><a href="#" className="hover:underline">About us</a></li>
-            <li><a href="#" className="hover:underline">Sign up</a></li>
+            <li><Link to="/login" className="hover:underline">Sign up</Link></li>
          </ul>
          
          <div>

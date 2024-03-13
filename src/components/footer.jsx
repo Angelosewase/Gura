@@ -18,7 +18,7 @@ function Footer(){
                 <p className="mt-3">Get 10% off your first order</p>
                 <label className="flex flex-row w-56 items-center border-2 border-white mt-4 rounded-md justify-between p-1">
                     <input type="text" placeholder="Enter your email " className="outline-none   bg-black text-white p-1"/>
-                     <img src={send} alt="This a send icon " className="h-8 -ml-2 bg-white rounded-md"/>
+                     <img src={send} alt="This a send icon " className="h-8 -ml-6 bg-white rounded-md"/>
                 </label>
             </div> 
             <div className="w-1/5">
