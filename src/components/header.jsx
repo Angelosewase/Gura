@@ -10,15 +10,15 @@ function Header(){
     <>
       <HeaderTop />
       <div className="flex flex-row mt-3 w-full justify-between h-20 m-auto items-center border-b border-gray-400"  >
-         <h1 className="mx-28 text-3xl font-medium">Exclusive</h1>
-         <ul className="flex flex-row w-72 justify-between font-500 ">
+         <h1 className="ml-28 mr-24 text-3xl font-medium">Exclusive</h1>
+         <ul className="flex flex-row w-80 justify-between font-500 ">
             <li><Link to="/" className="hover:underline">Home</Link></li>
             <li><a href="#" className="hover:underline">contact</a></li>
             <li><a href="#" className="hover:underline">About us</a></li>
-            <li><Link to="/login" className="hover:underline">Sign up</Link></li>
+            <li><Link to="/signup" className="hover:underline">Sign up</Link></li>
          </ul>
          
-         <div>
+         <div className="mr-3">
             <label className="flex flex-row justify-between" >
                  <input type="text" placeholder="what are you looking for?" className="bg-slate-100 p-2 pr-8 rounded-s-md focus:outline-none" />
                  <img src={searchIcon} alt="searc icon" className="w-6 pr-2 bg-slate-100 rounded-e-md" />
