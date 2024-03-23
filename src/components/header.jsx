@@ -13,7 +13,7 @@ function Header(){
          <h1 className="ml-28 mr-24 text-3xl font-medium">Exclusive</h1>
          <ul className="flex flex-row w-80 justify-between font-500 ">
             <li><Link to="/" className="hover:underline">Home</Link></li>
-            <li><a href="#" className="hover:underline">contact</a></li>
+            <li><Link to="/contact" className="hover:underline">contact us</Link></li>
             <li><Link to="/aboutUs" className="hover:underline">About us</Link></li>
             <li><Link to="/signup" className="hover:underline">Sign up</Link></li>
          </ul>

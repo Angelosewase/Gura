@@ -2,9 +2,6 @@ import Footer from "../components/footer";
 import Header from "../components/header";
 import Services from "../components/categories/services";
 
-import twitter from '/images/twitter.svg'
-import instagram from '/images/instagram.svg'
-import linkedin from '/images/linkedin.svg'
 
 const Person = (props) => {
     return ( 
@@ -17,9 +14,9 @@ const Person = (props) => {
             <h3 className='text-xl font-medium'>{props.name}</h3>
             <p className='text-sm mb-2'>{props.title}</p>
             <div className='flex justify-between w-4/12'>
-                <img src={twitter} alt="the twitter icon" className='w-5'/>
-                <img src={instagram} alt="the instagram icon" className='w-5'/>
-                <img src={linkedin} alt="the linkedin icon" className='w-5'/>
+                <img src={'/images/twitter.svg'} alt="the twitter icon" className='w-5'/>
+                <img src={'/images/instagram.svg'} alt="the instagram icon" className='w-5'/>
+                <img src={'/images/linkedin.svg'} alt="the linkedin icon" className='w-5'/>
             </div>
          </div>
       </div>

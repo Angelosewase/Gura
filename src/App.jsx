@@ -3,6 +3,7 @@ import Login from "./pages/logIn"
 import { createBrowserRouter,RouterProvider } from "react-router-dom"
 import SignUp from "./pages/singUp"
 import Aboutus from "./pages/aboutUs"
+import Contact from "./pages/contact"
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path:"/aboutUs",
     element:<Aboutus />
+  },
+  {
+     path:"/contact",
+     element:<Contact />
   }
 ])
 
