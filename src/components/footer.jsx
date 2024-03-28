@@ -11,7 +11,7 @@ function Footer(){
     return (
         <>
         <div className="bg-black ">
-         <div className="mt-10 flex flex-row w-11/12 m-auto bg-black text-white opacity-90 py-7 px-10" >
+         <div className="mt-10 flex flex-row w-11/12 m-auto bg-black text-white opacity-90 pt-7 px-10" >
             <div className="w-1/5">
                 <h1 className="text-xl font-semibold mb-5">Exclusive</h1>
                 <h2 className="text-lg">subscribe</h2>
@@ -53,7 +53,7 @@ function Footer(){
 
                 <div className="flex flec-row justify-between w-40 mt-4">
                     <img src={instagram} alt="instagram icon" className="w-5 bg-white rounded-full"/>
-                    <img src={linkedin} alt="linkedin icon" className="w-5 bg-white rounded-full" />
+                    <img src={linkedin} alt="linkedin icon" className="w-5 bg-white " />
                     <img src={facebook} alt="facebook icon" className="w-5 bg-white rounded-full"/>
                     <img src={twitter} alt="twitter icon" className="w-5 bg-white rounded-full"/>
                 </div>
