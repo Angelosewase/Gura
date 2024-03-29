@@ -2,8 +2,19 @@ import React from "react";
 import HeaderTop from "./headertop";
 import { Link } from "react-router-dom";
 
+
+
+
+
 function Header() {
-  const { profile, setProfile } = React.useState(true);
+  const [profile, setProfile ] = React.useState(false);
+  const [profiledivclicked, setProfiledivclicked] = React.useState(false)
+  const clickedDiv= React.useRef(null)
+  let color = profiledivclicked ? "bg-red-500":"";
+
+  function handleDivClick(){
+    setProfiledivclicked( prev => !prev)
+  }
 
   return (
     <>
@@ -49,21 +60,23 @@ function Header() {
             </label>
           </div>
 
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-row gap-3 items-center">
             <img
               src={"/images/heart.svg"}
               alt="the heart icon"
               className="w-6 "
             />
+            <Link to={"/cart"}>
             <img
               src={"/images/shopping-cart.svg"}
               alt="the shopping cart image"
               className="w-6"
             />
+            </Link>
             {profile ? (
               ""
             ) : (
-              <Link to="/account" className="flex items-center justify-center">
+              <Link to="/account" className={`flex items-center justify-center h-8 w-8 rounded-full ${color}`} ref={clickedDiv} onClick={handleDivClick}>
                 <img
                 src={"/images/user.svg"}
                 alt="the shopping cart image"
