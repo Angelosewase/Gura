@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { products } from "../products";
+import { Link } from "react-router-dom";
 
 let product1 = products[0];
 let product2 = products[1];
@@ -65,7 +66,7 @@ const Cart = () => {
                 placeholder="coupon code"
                 className="border-2 border-gray-700 rounded-sm py-2 outline-none mr-4 text-lg pl-2"
               />
-              <button className="bg-red-500 text-white px-10 py-3 rounded">
+              <button className="bg-red-700 text-white px-10 py-3 rounded">
                 apply coupon
               </button>
             </div>
@@ -83,7 +84,9 @@ const Cart = () => {
                 <p className="text-sm">Total:</p>
                 <span className="text-sm">$1500</span>
              </div>
-             <button className="bg-red-500 text-white rounded py-3 px-5 mx-20">process to checkout</button>
+             <button className="bg-red-700 text-white rounded py-3 px-5 mx-20">
+              <Link to={"/checkout"}> process to checkout</Link>
+             </button>
             </div>
           </div>
         </div>
