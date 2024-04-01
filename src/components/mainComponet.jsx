@@ -5,7 +5,7 @@ import BestSelling from "./categories/bestSelling";
 import Explore from "./categories/explore";
 import NewArrivals from "./categories/newArrival";
 import Services from "./categories/services";
-import Product from "./product";
+
 
 function MainContent() {
   return (
@@ -33,11 +33,10 @@ function MainContent() {
           </div>
         </div>
       </div>
-      <div className="ml-28 my-28">
+      <div className="ml-28 mb-16 mt-20">
         <FlashSales />
-        <Product />
       </div>
-      <div className="mx-28 my-28">
+      <div className="mx-28 mb-28 ">
         <BrowserCategory />
       </div>
       <div className="ml-28 my-28">
@@ -82,6 +81,7 @@ function MainContent() {
       </div>
       <div>
         <Services />
+
       </div>
 
       <button className="w-8 h-8 rounded-full bg-gray-100 ml-[90%]">

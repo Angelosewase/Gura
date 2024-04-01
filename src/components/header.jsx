@@ -61,11 +61,13 @@ function Header() {
           </div>
 
           <div className="flex flex-row gap-3 items-center">
+            <Link to={"/wishlist"}>
             <img
               src={"/images/heart.svg"}
               alt="the heart icon"
               className="w-6 "
             />
+            </Link>
             <Link to={"/cart"}>
             <img
               src={"/images/shopping-cart.svg"}

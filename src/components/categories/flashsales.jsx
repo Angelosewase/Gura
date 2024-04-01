@@ -1,8 +1,55 @@
 import React from "react";
-import rightarrow from "/images/arrow-small-right.svg";
-import leftarrow from "/images/arrow-small-left.svg";
+import Product from '../product'
+import {products }from '../../products.js'
+import { forwardRef ,useImperativeHandle} from "react";
+
+
+
+
+const FlashsalesProducts = forwardRef((props, ref)=>{
+const scrolldiv = React.useRef(null)
+const salesProducts =[];
+for (let index = 0; index < 12; index++) {
+  const element = products[index];
+  let product = <Product {...element} key={element.id}/>
+  salesProducts.push(product)
+}
+
+function scroll(direction){
+
+ if(direction ==="left"){
+   scrolldiv.current.scrollLeft -=800
+ }else{
+  scrolldiv.current.scrollLeft += 800
+ }
+}
+
+useImperativeHandle(ref,()=>({
+  scroll
+}))
+
+return <>
+<div className={`${props.display} gap-2 max-w-full grid-cols-6 flex-nowrap overflow-auto transition scroll-smooth `} ref={scrolldiv}>
+  {salesProducts}
+</div>
+</>
+});
+
+
 
 function FlashSales() {
+  const [display,setDisplay]= React.useState("flex")
+  const scrolldiv = React.useRef(null)
+
+  function HandleDisplay(){
+    let nextdisplay = display == "flex" ? "grid" : "flex"
+    setDisplay(nextdisplay)
+  }
+
+
+  function handlescroll(direction){
+     scrolldiv.current.scroll(direction)
+  }
   return (
     <>
       <div className="flex flex-row  w-11/12 justify-between ">
@@ -38,16 +85,23 @@ function FlashSales() {
           </div>
         </div>
         <div className="flex flex-row items-center">
-            <button className="w-8 h-8 rounded-full bg-gray-100 mx-1">
-               <img src={leftarrow} alt="the left arrow" className="w-8" />
+            <button className="w-8 h-8 rounded-full bg-gray-100 mx-1" onClick={()=>{handlescroll("left")}}>
+               <img src={"/images/arrow-small-left.svg"} alt="the left arrow" className="w-8" />
             </button>
-            <button className="w-8 h-8 rounded-full  bg-gray-100">
-                <img src={rightarrow} alt="the right arrow" className="w-8" />
+            <button className="w-8 h-8 rounded-full  bg-gray-100" onClick={ ()=>{handlescroll("right")}}>
+                <img src={"/images/arrow-small-right.svg"} alt="the right arrow" className="w-8" />
             </button>
           
         </div>
       </div>
+       
+      
+      <FlashsalesProducts display={display} ref={scrolldiv}/>
+
+      <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4" onClick={HandleDisplay}>{display == "flex" ? "view all products" : "show less products"}</button>
+      <hr className="bg-gray-400 mt-8"/>
     </>
   );
 }
+
 export default FlashSales;
