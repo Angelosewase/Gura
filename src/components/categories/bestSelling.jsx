@@ -1,6 +1,39 @@
 import React from "react";
+import {products} from '../../products.js'
+import Product from '../product'
+
+const Morebestesellingproducts = ()=>{
+  const Products  = []
+  for (let index = 35; index <40; index++) {
+   const element = products[index];
+   Products.push(<Product {...element}/>)
+  }
+    return(
+    <>
+       <div className="flex justify-evenly mr-28 flex-wrap">
+         {Products}
+       </div>
+    </>)
+}
+
+const BestSellingProducts= ()=>{
+  const Products  = []
+   for (let index = 20; index <25; index++) {
+    const element = products[index];
+    Products.push(<Product {...element}/>)
+   }
+     return(
+     <>
+        <div className="flex justify-evenly mr-28 flex-wrap">
+          {Products}
+        </div>
+     </>)
+}
+
+
 
 function BestSelling(){
+  const [more,setMore] = React.useState(false)
     return(
         <>
      <div className="flex flex-row  w-11/12 justify-between ">
@@ -12,9 +45,11 @@ function BestSelling(){
           <h1 className="text-4xl font-semibold my-4">Best selling Products</h1>
         </div>
         <div>
-           <button className="bg-red-500 h-12 w-40 rounded-md text-white mt-8">view all</button>
+           <button className="bg-red-500 h-12 w-40 rounded-md text-white mt-8" onClick={()=>{setMore(prev => !prev)}}>{more ? "show less" : "view all"}</button>
         </div>
       </div>
+      <BestSellingProducts />
+      {more ? <Morebestesellingproducts /> : ""}
         </>
     )
 }

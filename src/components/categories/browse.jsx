@@ -22,7 +22,7 @@ function BrowserCategory() {
           </button>
         </div>
       </div>
-      <div className=" grid grid-cols-6 gap-4 mt-8 ">
+      <div className=" grid lg:grid-cols-6 md:grid-cols-4 gap-4 mt-8 sm:grid-cols-3">
         <div className="border-2 border-stone-300 h-32 rounded-md flex items-center justify-center flex-col hover:bg-red-500 hover:text-white">
           <img
             src={"/images/mobile-button.svg"}

@@ -99,7 +99,7 @@ function FlashSales() {
       <FlashsalesProducts display={display} ref={scrolldiv}/>
 
       <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4" onClick={HandleDisplay}>{display == "flex" ? "view all products" : "show less products"}</button>
-      <hr className="bg-gray-400 mt-8"/>
+      <hr className="bg-gray-400 mt-8 mr-28"/>
     </>
   );
 }
