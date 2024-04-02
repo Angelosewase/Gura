@@ -3,7 +3,7 @@ import React from "react";
 function Services() {
   return (
     <>
-      <div className="flex flex-row w-10/12 justify-between mx-auto mb-20">
+      <div className="flex flex-row w-10/12 justify-between mx-auto mb-20 flex-wrap">
         <div className="w-1/3 flex flex-col items-center">
           <div className="w-20 h-20 flex items-center justify-center bg-black rounded-full mb-4">
             <div className=" bg-slate-400 w-14 h-14 rounded-full flex items-center justify-center">

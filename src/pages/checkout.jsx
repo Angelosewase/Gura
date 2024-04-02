@@ -1,6 +1,6 @@
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { products } from "../products";
+import { products } from "../data/products";
 
 let product1 = products[0];
 let product2 = products[1];

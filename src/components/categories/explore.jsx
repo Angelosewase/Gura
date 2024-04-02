@@ -1,5 +1,5 @@
 import React, { forwardRef, useImperativeHandle } from "react";
-import {products} from '../../products.js'
+import {products} from '../../data/products.js'
 import Product from '../product'
 
 const Ourproduts=forwardRef((props,ref)=>{
@@ -7,12 +7,12 @@ const Ourproduts=forwardRef((props,ref)=>{
   const Products =[]
   for (let index = 10; index < 20; index++) {
     const element = products[index];
-    Products.push(<Product {...element}/>)
+    Products.push(<Product {...element} key={element.id}/>)
   }
   if(more){
   for (let index = 30; index < 40; index++) {
     const element = products[index];
-    Products.push(<Product {...element}/>)
+    Products.push(<Product {...element} key={element.id}/>)
   }
 
 }

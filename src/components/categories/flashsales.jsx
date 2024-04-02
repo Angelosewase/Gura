@@ -1,6 +1,6 @@
 import React from "react";
 import Product from '../product'
-import {products }from '../../products.js'
+import {products }from '../../data/products.js'
 import { forwardRef ,useImperativeHandle} from "react";
 
 
@@ -52,8 +52,8 @@ function FlashSales() {
   }
   return (
     <>
-      <div className="flex flex-row  w-11/12 justify-between ">
-        <div className="flex flex-row  w-6/12 justify-between">
+      <div className="flex flex-row  w-11/12 justify-between flex-wrap">
+        <div className="flex flex-row  w-6/12 justify-between flex-wrap">
           <div>
             <div className="flex ">
                <button className="bg-red-500 w-3 h-6 rounded-sm"></button>

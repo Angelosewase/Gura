@@ -33,16 +33,16 @@ function MainContent() {
           </div>
         </div>
       </div>
-      <div className="ml-28 mb-16 mt-20">
+      <div className="lg:ml-28 sm:ml-14 mb-16 mt-20">
         <FlashSales />
       </div>
       <div className="mx-28 mb-28 ">
         <BrowserCategory />
       </div>
-      <div className="ml-28 my-28">
+      <div className="lg:ml-28 sm:ml-14 my-28">
         <BestSelling />
       </div>
-      <div className="ml-28 my-20 mr-40  bg-black relative">
+      <div className="lg:ml-28 sm:ml-14 my-20 mr-40  bg-black relative">
         <img
           src={"/products/bluetooth speaker.webp"}
           alt="the bluetooth speaker image"
@@ -72,11 +72,11 @@ function MainContent() {
           <button className="w-40 h-12 bg-green-400 border-none mt-7 rounded-md">Buy now</button>
         </div>
       </div>
-      <div className="ml-28 my-28">
+      <div className="lg:ml-28 sm:ml-14 my-28">
         <Explore />
         <div></div>
       </div>
-      <div className="ml-28 mr-36 mt-28 mb-48">
+      <div className="lg:ml-28 sm:ml-14 mr-36 mt-28 mb-48">
         <NewArrivals />
       </div>
       <div>

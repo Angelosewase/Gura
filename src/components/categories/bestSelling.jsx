@@ -1,12 +1,12 @@
 import React from "react";
-import {products} from '../../products.js'
+import {products} from '../../data/products.js'
 import Product from '../product'
 
 const Morebestesellingproducts = ()=>{
   const Products  = []
   for (let index = 35; index <40; index++) {
    const element = products[index];
-   Products.push(<Product {...element}/>)
+   Products.push(<Product {...element} key={element.id}/>)
   }
     return(
     <>
@@ -20,7 +20,7 @@ const BestSellingProducts= ()=>{
   const Products  = []
    for (let index = 20; index <25; index++) {
     const element = products[index];
-    Products.push(<Product {...element}/>)
+    Products.push(<Product {...element} key={element.id}/>)
    }
      return(
      <>

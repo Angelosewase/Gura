@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
-import { products } from "../products";
+import { products } from "../data/products.js";
 import { Link } from "react-router-dom";
 
 let product1 = products[0];
