@@ -3,11 +3,53 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { products } from "../data/products.js";
 import { Link } from "react-router-dom";
+import { cart} from "../data/cart.js";
 
-let product1 = products[0];
-let product2 = products[1];
+function updateproductQuantity(productid, quantity){
+  for (let index = 0; index < cart.length; index++) {
+    const element = cart[index];
+    if( element.id === productid){
+     element.quantity = quantity
+     return
+    }
+  }
+}
+
+function Products(props) {
+  const cartProductsdisplay = [];
+  for (let i = 0; i < cart.length; i++) {
+    const cartlement = cart[i];
+ //loop through each element in the cart 
+    for (let j = 0; j < products.length; j++) {
+      const product = products[j];
+// loop throught each element of the products array
+      if (product.id == cartlement.id) {
+        let productquantity = cartlement.quantity;
+        let newproduct = {...product,productquantity}
+        cartProductsdisplay.push(newproduct);
+      }
+    }
+  }
+  return (
+    <>
+      {cartProductsdisplay.map((product) => (
+        <CartProduct
+          {...product}
+          calculateSubtotal={props.calculateSubtotal}
+          key={product.image}
+        />
+      ))}
+    </>
+  );
+}
 
 const CartProduct = (props) => {
+  const [quantity, setQuantity] = React.useState(props.productquantity);
+  let price = props.priceCents;
+  let subtotal = (price / 100) * quantity;
+  props.calculateSubtotal(subtotal);
+  let id = props.id
+
   return (
     <>
       <div className="grid grid-cols-4  mt-8 border-b-2 border-gray-50 pb-4 ">
@@ -22,16 +64,60 @@ const CartProduct = (props) => {
           <input
             type="number"
             className="w-14 px-2 py-1 border-2 outline-none border-gray-400 rounded-md"
-            min={0}
+            min={1}
+            defaultValue={quantity}
+            onChange={(e) => {
+              setQuantity(e.target.value);
+              updateproductQuantity(id,e.target.value)
+            }}
           />
         </div>
-        <div className="flex items-center">${props.priceCents / 100}</div>
+        <div className="flex items-center">${subtotal.toFixed(2)}</div>
+      </div>
+    </>
+  );
+};
+
+const Checkoutprocessdetails = (props) => {
+  return (
+    <>
+      <div className="border-2 py-4 px-4 rounded border-black flex-1">
+        <h1 className="font-semibold">Cart Total</h1>
+        <div className="flex justify-between border-b-2 py-2 mb-2">
+          <p className="text-sm">Subtotal:</p>
+          <span className="text-sm">${props.total.toFixed(2)}</span>
+        </div>
+        <div className="flex justify-between border-b-2 py-2 mb-2">
+          <p className="text-sm">shipping:</p>
+          <span className="text-sm"> free</span>
+        </div>
+        <div className="flex justify-between  py-2 mb-2">
+          <p className="text-sm">Total:</p>
+          <span className="text-sm">${props.total.toFixed(2)}</span>
+        </div>
+        <button className="bg-red-700 text-white rounded py-3 px-5 mx-20">
+          <Link to={"/checkout"}> process to checkout</Link>
+        </button>
       </div>
     </>
   );
 };
 
 const Cart = () => {
+  const [total, setTotal] = React.useState(0);
+  let values = [];
+
+  function calculateSubtotal(productSubtotal) {
+    for (let index = 0; index < values.length; index++) {
+      const element = values[index];
+      if (productSubtotal == element) {
+        return;
+      }
+    }
+    values.push(productSubtotal);
+    setTotal(values.reduce((accumulator, value) => accumulator + value, 0));
+  }
+
   return (
     <>
       <Header />
@@ -48,8 +134,7 @@ const Cart = () => {
               <p>Quantity</p>
               <p>Subtotal</p>
             </div>
-            <CartProduct {...product1} />
-            <CartProduct {...product2} />
+            <Products calculateSubtotal={calculateSubtotal} />
           </div>
           <div className="mt-3 flex justify-between pr-[5%]">
             <button className="border-2 border-gray-300 text-sm font-semibold rounded-sm px-5 py-3">
@@ -70,24 +155,7 @@ const Cart = () => {
                 apply coupon
               </button>
             </div>
-            <div className="border-2 py-4 px-4 rounded border-black flex-1">
-             <h1 className="font-semibold">Cart Total</h1>
-             <div className="flex justify-between border-b-2 py-2 mb-2">
-                <p className="text-sm">Subtotal:</p>
-                <span className="text-sm">$1170</span>
-             </div>
-             <div className="flex justify-between border-b-2 py-2 mb-2">
-                <p className="text-sm">shipping:</p>
-                <span className="text-sm"> free</span>
-             </div>
-             <div className="flex justify-between  py-2 mb-2">
-                <p className="text-sm">Total:</p>
-                <span className="text-sm">$1500</span>
-             </div>
-             <button className="bg-red-700 text-white rounded py-3 px-5 mx-20">
-              <Link to={"/checkout"}> process to checkout</Link>
-             </button>
-            </div>
+            <Checkoutprocessdetails total={total} />
           </div>
         </div>
       </div>
