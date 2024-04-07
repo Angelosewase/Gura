@@ -7,12 +7,12 @@ const Ourproduts=forwardRef((props,ref)=>{
   const Products =[]
   for (let index = 10; index < 20; index++) {
     const element = products[index];
-    Products.push(<Product {...element} key={element.id}/>)
+    Products.push(<Product {...element} key={element.id} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>)
   }
   if(more){
   for (let index = 30; index < 40; index++) {
     const element = products[index];
-    Products.push(<Product {...element} key={element.id}/>)
+    Products.push(<Product {...element} key={element.id} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>)
   }
 
 }
@@ -30,7 +30,7 @@ useImperativeHandle(ref,()=>({
   </>)
 })
 
-function Explore(){
+function Explore(props){
   const productsref = React.useRef(null)
   const [buttonclicked,setButtonclicked] = React.useState(false)
   function handleclicl(){
@@ -56,7 +56,7 @@ function Explore(){
               </button>
             </div>
           </div>
-          <Ourproduts ref={productsref}/>
+          <Ourproduts ref={productsref} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
           <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4" onClick={handleclicl}>{buttonclicked ? "show less" : "view all products"}</button>
         </>
     )

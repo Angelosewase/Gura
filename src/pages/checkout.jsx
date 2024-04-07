@@ -1,11 +1,15 @@
+import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import { products } from "../data/products";
+import { cart } from "../data/cart.js";
 
 let product1 = products[0];
 let product2 = products[1];
 
 function CheckoutProduct(props) {
+  let subtotal = ((props.priceCents / 100)* props.productquantity)
+  props.calculatesubtotal(subtotal)
   return (
     <>
       <div className="grid grid-cols-2 my-2  gap-10 flex-1 ">
@@ -13,13 +17,74 @@ function CheckoutProduct(props) {
           <img src={props.image} alt="" className="w-9" />
           <p className="text-sm">{props.name}</p>
         </div>
-        <p className="text-sm">${props.priceCents / 100}</p>
+        <p className="text-sm">${subtotal}</p>
       </div>
     </>
   );
 }
 
+const Checkoutproducts = (props) => {
+  const checkoutProductsdisplay = [];
+  for (let i = 0; i < cart.length; i++) {
+    const cartlement = cart[i];
+ //loop through each element in the cart 
+    for (let j = 0; j < products.length; j++) {
+      const product = products[j];
+// loop throught each element of the products array
+      if (product.id == cartlement.id) {
+        let productquantity = cartlement.quantity;
+        let newproduct = {...product,productquantity}
+        checkoutProductsdisplay.push(newproduct);
+      }
+    }
+  }
+   
+  return (
+    <>
+        {checkoutProductsdisplay.map((product)=>(
+        <CheckoutProduct {...product} calculatesubtotal={props.calculatesubtotal} key={product.image}/>
+        ))}
+    </>
+  );
+};
+const CheckoutPriceDetails = (props) => {
+  return (
+    <>
+      <div className="my-2">
+        <div className="grid grid-cols-2  py-2">
+          <p>subtotal:</p>
+          <p className="pl-5">${(props.total).toFixed(2)}</p>
+        </div>
+        <hr className="w-8/12" />
+        <div className="grid grid-cols-2 py-2">
+          <p>shipping:</p>
+          <p className="pl-5">free</p>
+        </div>
+        <hr className="w-8/12" />
+        <div className="grid grid-cols-2 py-2">
+          <p className="font-semibold">Total:</p>
+          <p className="pl-5">${(props.total).toFixed(2)}</p>
+        </div>
+      </div>
+    </>
+  );
+};
+
 const Checkout = () => {
+  const [total, setTotal] = React.useState(0);
+  let values = [];
+
+  function calculateSubtotal(productSubtotal) {
+    for (let index = 0; index < values.length; index++) {
+      const element = values[index];
+      if (productSubtotal == element) {
+        return;
+      }
+    }
+    values.push(productSubtotal);
+    setTotal(values.reduce((accumulator, value) => accumulator + value, 0));
+  }
+
   return (
     <>
       <Header />
@@ -37,7 +102,7 @@ const Checkout = () => {
           <div className=" w-4/12">
             <form>
               <div className="flex flex-col mt-1">
-                <label htmlFor="firstname" className="text-gray-500">
+                <label  className="text-gray-500">
                   First name
                 </label>
                 <input
@@ -47,7 +112,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col mt-1">
-                <label htmlFor="companyname">Company name</label>
+                <label >Company name</label>
                 <input
                   type="text"
                   name="companyname"
@@ -55,7 +120,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col mt-1">
-                <label htmlFor="streetaddress">Street address</label>
+                <label >Street address</label>
                 <input
                   type="text"
                   name="streetaddress"
@@ -63,7 +128,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col mt-1">
-                <label htmlFor="apartment">
+                <label >
                   Apartement, Floor, etc(optional)
                 </label>
                 <input
@@ -73,7 +138,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col  mt-1">
-                <label htmlFor="town/city">Town/ city</label>
+                <label >Town/ city</label>
                 <input
                   type="text"
                   name="town/city"
@@ -81,7 +146,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col mt-1">
-                <label htmlFor="phonenumber">Phone numbert</label>
+                <label>Phone numbert</label>
                 <input
                   type="tel"
                   name="phonenumber"
@@ -89,7 +154,7 @@ const Checkout = () => {
                 />
               </div>
               <div className="flex flex-col mt-1 mb-1">
-                <label htmlFor="email">Email address</label>
+                <label >Email address</label>
                 <input
                   type="email"
                   name="email"
@@ -97,7 +162,7 @@ const Checkout = () => {
                 />
               </div>
               <input type="checkbox" name="saveinfo" />
-              <label htmlFor="saveinfo" className="text-sm">
+              <label  className="text-sm">
                 save this information for faster check-out next time
               </label>
             </form>
@@ -105,45 +170,33 @@ const Checkout = () => {
 
           <div className="w-6/12 mt-4">
             <div className="flex flex-col">
-              <CheckoutProduct {...product1} />
-              <CheckoutProduct {...product2} />
+              <Checkoutproducts calculatesubtotal={calculateSubtotal}/>
             </div>
-            <div className="my-2">
-              <div className="grid grid-cols-2  py-2">
-                <p>subtotal:</p>
-                <p className="pl-5">$1170</p>
-              </div>
-              <hr className="w-8/12" />
-              <div className="grid grid-cols-2 py-2">
-                <p>shipping:</p>
-                <p className="pl-5">free</p>
-              </div>
-              <hr className="w-8/12" />
-              <div className="grid grid-cols-2 py-2">
-                <p className="font-semibold">Total:</p>
-                <p className="pl-5">$1170</p>
-              </div>
-              
-            </div>
+            <CheckoutPriceDetails total={total}/>
             <div className="my-1">
               <div className="flex  gap-2 items-center">
-                <input type="radio" name="paymentoption" className=" w-4"/>
-                <label htmlFor="paymentoption"> Bank</label>
+                <input type="radio" name="paymentoption" className=" w-4" />
+                <label > Bank</label>
               </div>
               <div className="flex  gap-2 items-center">
-                <input type="radio" name="paymentoption" className=" w-4"/>
-                <label htmlFor="paymenyoption"> cash on delivery</label>
+                <input type="radio" name="paymentoption" className=" w-4" />
+                <label> cash on delivery</label>
               </div>
-
             </div>
 
             <div className="flex gap-3 my-5">
-              <input type="text" placeholder="apply coupon" className="pl-2 py-2 pr-4 text-lg rounded border-2 border-gray-700 placeholder:text-gray-400" />
-              <button className="bg-red-500 text-white px-10 py-3 rounded ">Apply coupon</button>
+              <input
+                type="text"
+                placeholder="apply coupon"
+                className="pl-2 py-2 pr-4 text-lg rounded border-2 border-gray-700 placeholder:text-gray-400"
+              />
+              <button className="bg-red-500 text-white px-10 py-3 rounded ">
+                Apply coupon
+              </button>
             </div>
-            <button className="bg-red-500 text-white px-10 py-3 rounded ">Place order</button>
-
-
+            <button className="bg-red-500 text-white px-10 py-3 rounded ">
+              Place order
+            </button>
           </div>
         </div>
       </div>

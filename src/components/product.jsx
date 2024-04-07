@@ -36,6 +36,7 @@ const ProductIconDiv1 = (props) => {
           className={`w-8 h-8 ${display} items-center justify-center bg-gray-100 rounded-full mb-1 hover:bg-gray-400`}
           onClick={() => {
             addtowhishlist(data);
+           props.updateheaderwishlist(wishlistProducts.length)
           }}
         >
           <img src={"/images/heart.svg"} alt="the heart icon" className="w-5" />
@@ -50,7 +51,7 @@ const ProductIconDiv1 = (props) => {
   );
 };
 
-const ProductIconDiv2 = ({ data, clicked }) => {
+const ProductIconDiv2 = ({ data, clicked,updateheaderwishlist }) => {
   return (
     <>
       <div className="absolute top-2 right-2 ">
@@ -58,6 +59,7 @@ const ProductIconDiv2 = ({ data, clicked }) => {
           className="w-8 h-8 flex items-center justify-center bg-gray-100 hover:bg-red-500 rounded-full mb-2 "
           onClick={() => {
             removeformwishlist(data, clicked);
+            updateheaderwishlist(wishlistProducts.length)
           }}
         >
           <img src={"/images/trash.svg"} alt="the heart icon" className="w-5" />
@@ -107,7 +109,7 @@ function Product(props) {
             <div 
             className="absolute bottom-0 bg-black text-white w-full h-8 font-3xl flex justify-center rounded-sm invisible " 
             ref={addtocartdivref}
-            onClick={()=>{addToCart(props.id,1); setaddtocart(true)}}
+            onClick={()=>{addToCart(props.id,1); setaddtocart(true); props.updateheader(cart.length)}}
             >
               <p className="my-auto">{addedtocart ? "Added to cart": "Add to cart"}</p>
             </div>
@@ -133,6 +135,7 @@ function Product(props) {
           recommended={props.recommended}
           data={props.id}
           clicked={props.clicked}
+          updateheaderwishlist={props.updateheaderwishlist}
         />
       </div>
     </>

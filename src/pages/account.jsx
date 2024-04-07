@@ -39,7 +39,7 @@ const AccountDetailsCategories = (props) => {
 const Account = () => {
   return (
     <>
-      <Header />
+      <Header profiledivclicked ={true}/>
       <div className="mt-8">
         <Top />
 

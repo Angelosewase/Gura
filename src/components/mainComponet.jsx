@@ -7,7 +7,7 @@ import NewArrivals from "./categories/newArrival";
 import Services from "./categories/services";
 
 
-function MainContent() {
+function MainContent(props) {
   return (
     <>
       <div className="flex fle-row">
@@ -34,13 +34,13 @@ function MainContent() {
         </div>
       </div>
       <div className="lg:ml-28 sm:ml-14 mb-16 mt-20">
-        <FlashSales />
+        <FlashSales updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
       </div>
       <div className="mx-28 mb-28 ">
         <BrowserCategory />
       </div>
       <div className="lg:ml-28 sm:ml-14 my-28">
-        <BestSelling />
+        <BestSelling updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
       </div>
       <div className="lg:ml-28 sm:ml-14 my-20 mr-40  bg-black relative">
         <img
@@ -73,7 +73,7 @@ function MainContent() {
         </div>
       </div>
       <div className="lg:ml-28 sm:ml-14 my-28">
-        <Explore />
+        <Explore updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
         <div></div>
       </div>
       <div className="lg:ml-28 sm:ml-14 mr-36 mt-28 mb-48">

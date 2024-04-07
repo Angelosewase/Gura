@@ -11,8 +11,8 @@ function Footer(){
     return (
         <>
         <div className="bg-black ">
-         <div className="mt-10 flex flex-row w-11/12 m-auto bg-black text-white opacity-90 pt-7 px-10" >
-            <div className="w-1/5">
+         <div className="mt-10 grid lg:grid-cols-5 w-11/12 m-auto bg-black text-white opacity-90 pt-7 lg:items-left  md-items-center md:px-10 md:grid-cols-2 ">
+            <div>
                 <h1 className="text-xl font-semibold mb-5">Exclusive</h1>
                 <h2 className="text-lg">subscribe</h2>
                 <p className="mt-3">Get 10% off your first order</p>
@@ -21,14 +21,14 @@ function Footer(){
                      <img src={send} alt="This a send icon " className="h-8 -ml-6 bg-white rounded-md"/>
                 </label>
             </div> 
-            <div className="w-1/5">
+            <div>
                  <h1 className="text-lg mb-3">support</h1>
                  <p className="py-1">111 Bijoy saran,<br /> Dhaka, DH 1515, India</p>
                  <p className="py-1">exclusive@gmail.com</p>
                  <p className="py-1">+88015-88888-9999</p>
             
             </div>
-            <div className="w-1/5 flex flex-col">
+            <div className=" flex flex-col">
                 <h1 className="text-lg mb-3">Account</h1>
                 <a href="#" className="py-1">My account</a>
                 <a href="#" className="py-1">Login / Register</a>
@@ -36,14 +36,14 @@ function Footer(){
                 <a href="#" className="py-1">Wishlist</a>
                 <a href="#" className="py-1">Shop</a>
             </div>
-            <div className="w-1/5 flex-col">
+            <div className="flex-col">
                 <h1 className="text-lg mb-3">Quick link</h1>
                 <p className="py-1">Privacy Policy</p>
                 <p className="py-1">Terms of use</p>
                 <p className="py-1">FAQ</p>
                 <p className="py-1">Contact</p>
             </div>
-            <div className="w-1/5 flex-col">
+            <div className="flex-col">
                 <h1 className="text-lg mb-3">Download App</h1>
                 <p className="text-xs">save $3 with App new User only</p>
                 <div>

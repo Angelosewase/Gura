@@ -4,8 +4,26 @@ import Header from "../components/header";
 import Product from "../components/product";
 import { products } from "../data/products";
 import { wishlistProducts } from "../data/wishlist";
+import { cart } from "../data/cart";
 
-const  WishlistProducts =({updated})=>{
+
+function addalltocart(update){
+  let quantity=1
+for (let i = 0; i < wishlistProducts.length; i++) {
+  const wishlistelement = wishlistProducts[i];
+  let foundproduct;
+  for (let index = 0; index < cart.length; index++) {
+    const cartelement = cart[index];
+      if(cartelement.id === wishlistelement){
+      foundproduct=true
+      }
+    }
+   if(!foundproduct){cart.push({id:wishlistelement,quantity:quantity})}
+  }
+ update(cart.length)
+}
+
+const  WishlistProducts =({updated,updateheader,updateheaderwishlist})=>{
   const foundwishlistProducts = []
 
   for (let index = 0; index < wishlistProducts.length; index++) {
@@ -19,14 +37,14 @@ const  WishlistProducts =({updated})=>{
     
   }
   const wishlist = foundwishlistProducts.map((product)=> <Product {...product} wishlist={true} key={product.image} 
-  clicked={updated}
+  clicked={updated} updateheader={updateheader} updateheaderwishlist={updateheaderwishlist}
   />)
 
   return <>
   <div className="grid grid-cols-6 gap-2">
   {wishlist}
   </div>
- 
+  {wishlist.length === 0 ? <p className="text-2xl font-semibold ml-[20%]"> Oops! There are no products in the wishlist</p>:""}
   </>
 }
 
@@ -34,17 +52,28 @@ let productTwo = products[5]
 
 const WishList = () => {
   const [updated,setUpdated] = React.useState(false)
+  
+  const headerref = React.useRef(null)
+
+  function updateheader(value){
+    headerref.current.setCartvalue(value)
+   }
+  
+   function updateheaderwishlist(value){
+    headerref.current.setwishlistvalue(value)
+   }
+
   return (
     <>
-      <Header />
+      <Header ref={headerref}/>
       <div className="mx-20">
         <div>
           <div className="flex justify-between items-center mb-6 mt-10">
             <p className="font-semibold">Wishlist ({wishlistProducts.length})</p>
-            <button className="border-2 px-4  py-1 rounded">Move all to bag</button>
+            <button className="border-2 px-4  py-1 rounded hover:bg-gray-200" onClick={() =>{addalltocart(updateheader)}}>Move all to bag</button>
           </div>
           <div>
-          <WishlistProducts updated={setUpdated}/>
+          <WishlistProducts updated={setUpdated} updateheader={updateheader} updateheaderwishlist={updateheaderwishlist}/>
           </div>
         </div>
         <div>
@@ -58,7 +87,7 @@ const WishList = () => {
             </div>
             
             <div>
-              <Product {...productTwo} recommended={true}/>
+              <Product {...productTwo} recommended={true} updateheader={updateheader}/>
             </div>
           </div>
           <div></div>

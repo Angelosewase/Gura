@@ -11,7 +11,7 @@ const scrolldiv = React.useRef(null)
 const salesProducts =[];
 for (let index = 0; index < 12; index++) {
   const element = products[index];
-  let product = <Product {...element} key={element.id}/>
+  let product = <Product {...element} key={element.id} updateheader = {props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
   salesProducts.push(product)
 }
 
@@ -37,7 +37,7 @@ return <>
 
 
 
-function FlashSales() {
+function FlashSales(props) {
   const [display,setDisplay]= React.useState("flex")
   const scrolldiv = React.useRef(null)
 
@@ -96,7 +96,7 @@ function FlashSales() {
       </div>
        
       
-      <FlashsalesProducts display={display} ref={scrolldiv}/>
+      <FlashsalesProducts display={display} ref={scrolldiv} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
 
       <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4" onClick={HandleDisplay}>{display == "flex" ? "view all products" : "show less products"}</button>
       <hr className="bg-gray-400 mt-8 mr-28"/>

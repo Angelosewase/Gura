@@ -3,14 +3,18 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { products } from "../data/products.js";
 import { Link } from "react-router-dom";
-import { cart} from "../data/cart.js";
+import { cart } from "../data/cart.js";
 
-function updateproductQuantity(productid, quantity){
+function returntoshop() {
+  cart.splice(0, cart.length);
+}
+
+function updateproductQuantity(productid, quantity) {
   for (let index = 0; index < cart.length; index++) {
     const element = cart[index];
-    if( element.id === productid){
-     element.quantity = quantity
-     return
+    if (element.id === productid) {
+      element.quantity = quantity;
+      return;
     }
   }
 }
@@ -19,13 +23,13 @@ function Products(props) {
   const cartProductsdisplay = [];
   for (let i = 0; i < cart.length; i++) {
     const cartlement = cart[i];
- //loop through each element in the cart 
+    //loop through each element in the cart
     for (let j = 0; j < products.length; j++) {
       const product = products[j];
-// loop throught each element of the products array
+      // loop throught each element of the products array
       if (product.id == cartlement.id) {
         let productquantity = cartlement.quantity;
-        let newproduct = {...product,productquantity}
+        let newproduct = { ...product, productquantity };
         cartProductsdisplay.push(newproduct);
       }
     }
@@ -48,7 +52,7 @@ const CartProduct = (props) => {
   let price = props.priceCents;
   let subtotal = (price / 100) * quantity;
   props.calculateSubtotal(subtotal);
-  let id = props.id
+  let id = props.id;
 
   return (
     <>
@@ -68,7 +72,7 @@ const CartProduct = (props) => {
             defaultValue={quantity}
             onChange={(e) => {
               setQuantity(e.target.value);
-              updateproductQuantity(id,e.target.value)
+              updateproductQuantity(id, e.target.value);
             }}
           />
         </div>
@@ -107,6 +111,8 @@ const Cart = () => {
   const [total, setTotal] = React.useState(0);
   let values = [];
 
+  const [updated, setupdated] = React.useState(false);
+
   function calculateSubtotal(productSubtotal) {
     for (let index = 0; index < values.length; index++) {
       const element = values[index];
@@ -118,9 +124,11 @@ const Cart = () => {
     setTotal(values.reduce((accumulator, value) => accumulator + value, 0));
   }
 
+  const headerref = React.useRef(null);
+
   return (
     <>
-      <Header />
+      <Header ref={headerref} />
       <div className="mx-20">
         <div className="mt-10">
           <span className="opacity-50">Home</span> /Cart
@@ -137,7 +145,15 @@ const Cart = () => {
             <Products calculateSubtotal={calculateSubtotal} />
           </div>
           <div className="mt-3 flex justify-between pr-[5%]">
-            <button className="border-2 border-gray-300 text-sm font-semibold rounded-sm px-5 py-3">
+            <button
+              className="border-2 border-gray-300 text-sm font-semibold rounded-sm px-5 py-3 hover:bg-gray-300"
+              onClick={() => {
+                returntoshop();
+                setupdated((prev) => !prev);
+                headerref.current.setCartvalue(0);
+                setTotal(0)
+              }}
+            >
               Return to shop
             </button>
             <button className="border-2 border-gray-300 text-sm font-semibold rounded-sm px-5 py-3 ml-4">

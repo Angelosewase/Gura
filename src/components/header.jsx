@@ -1,26 +1,58 @@
-import React from "react";
+import React, { forwardRef, useImperativeHandle } from "react";
 import HeaderTop from "./headertop";
 import { Link } from "react-router-dom";
+import { cart } from "../data/cart.js";
+import { wishlistProducts } from "../data/wishlist.js";
+
+const CartCount = (props) => {
+  let count = props.cartValue;
+  let display;
+ if(count === 0){
+  display ="invisible"
+}
 
 
+  return (
+    <>
+      <div className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}>
+        {count}
+      </div>
+    </>
+  );
+};
 
+const WishlistCount = (props) => {
+  let count = props.wishlistValue;
+ let display
+  if(count === 0){
+   display ="invisible"
+ }
+  return (
+    <>
+      <div className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}>
+        {count}
+      </div>
+    </>
+  );
+};
 
+const Header = forwardRef((props,ref) => {
+  const [profile, setProfile] = React.useState(false);
+  let color = props.profiledivclicked ? "bg-red-500" : "";
 
-function Header() {
-  const [profile, setProfile ] = React.useState(false);
-  const [profiledivclicked, setProfiledivclicked] = React.useState(false)
-  const clickedDiv= React.useRef(null)
-  let color = profiledivclicked ? "bg-red-500":"";
+  const [cartValue,setCartvalue] = React.useState(cart.length)
+  const [wishlistValue,setwishlistvalue] = React.useState(wishlistProducts.length)
 
-  function handleDivClick(){
-    setProfiledivclicked( prev => !prev)
-  }
+  useImperativeHandle(ref,()=>({
+    setCartvalue,
+    setwishlistvalue
+  }))
 
   return (
     <>
       <HeaderTop />
       <div className="flex flex-row mt-3 w-full justify-between h-20 m-auto items-center border-b border-gray-400">
-        <h1 className=" ml-28 text-3xl font-medium">Exclusive</h1>
+        <h1 className=" ml-28 text-3xl font-medium">GURA</h1>
         <ul className="flex flex-row w-80 justify-between font-500 ">
           <li>
             <Link to="/" className="hover:underline">
@@ -61,37 +93,41 @@ function Header() {
           </div>
 
           <div className="flex flex-row gap-3 items-center">
-            <Link to={"/wishlist"}>
-            <img
-              src={"/images/heart.svg"}
-              alt="the heart icon"
-              className="w-6 "
-            />
+            <Link to={"/wishlist"} className="relative">
+              <img
+                src={"/images/heart.svg"}
+                alt="the heart icon"
+                className="w-6 "
+              />
+              <WishlistCount wishlistValue={wishlistValue} />
             </Link>
-            <Link to={"/cart"}>
-            <img
-              src={"/images/shopping-cart.svg"}
-              alt="the shopping cart image"
-              className="w-6"
-            />
+            <Link to={"/cart"} className="relative">
+              <img
+                src={"/images/shopping-cart.svg"}
+                alt="the shopping cart image"
+                className="w-6"
+              />
+              <CartCount cartValue ={cartValue}/>
             </Link>
             {profile ? (
               ""
             ) : (
-              <Link to="/account" className={`flex items-center justify-center h-8 w-8 rounded-full ${color}`} ref={clickedDiv} onClick={handleDivClick}>
+              <Link
+                to="/account"
+                className={`flex items-center justify-center h-8 w-8 rounded-full ${color}`}
+              >
                 <img
-                src={"/images/user.svg"}
-                alt="the shopping cart image"
-                className="w-6"
-              />
+                  src={"/images/user.svg"}
+                  alt="the shopping cart image"
+                  className="w-6"
+                />
               </Link>
-            
             )}
           </div>
         </div>
       </div>
     </>
   );
-}
+});
 
 export default Header;

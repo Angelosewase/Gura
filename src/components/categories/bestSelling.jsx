@@ -2,11 +2,11 @@ import React from "react";
 import {products} from '../../data/products.js'
 import Product from '../product'
 
-const Morebestesellingproducts = ()=>{
+const Morebestesellingproducts = (props)=>{
   const Products  = []
   for (let index = 35; index <40; index++) {
    const element = products[index];
-   Products.push(<Product {...element} key={element.id}/>)
+   Products.push(<Product {...element} key={element.id} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>)
   }
     return(
     <>
@@ -16,11 +16,11 @@ const Morebestesellingproducts = ()=>{
     </>)
 }
 
-const BestSellingProducts= ()=>{
+const BestSellingProducts= (props)=>{
   const Products  = []
    for (let index = 20; index <25; index++) {
     const element = products[index];
-    Products.push(<Product {...element} key={element.id}/>)
+    Products.push(<Product {...element} key={element.id} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>)
    }
      return(
      <>
@@ -32,7 +32,7 @@ const BestSellingProducts= ()=>{
 
 
 
-function BestSelling(){
+function BestSelling(props){
   const [more,setMore] = React.useState(false)
     return(
         <>
@@ -48,8 +48,8 @@ function BestSelling(){
            <button className="bg-red-500 h-12 w-40 rounded-md text-white mt-8" onClick={()=>{setMore(prev => !prev)}}>{more ? "show less" : "view all"}</button>
         </div>
       </div>
-      <BestSellingProducts />
-      {more ? <Morebestesellingproducts /> : ""}
+      <BestSellingProducts updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
+      {more ? <Morebestesellingproducts updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/> : ""}
         </>
     )
 }
