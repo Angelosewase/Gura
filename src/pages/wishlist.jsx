@@ -90,7 +90,6 @@ const WishList = () => {
               <Product {...productTwo} recommended={true} updateheader={updateheader}/>
             </div>
           </div>
-          <div></div>
         </div>
       </div>
       <Footer />

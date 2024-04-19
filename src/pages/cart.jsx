@@ -129,6 +129,7 @@ const Cart = () => {
   return (
     <>
       <Header ref={headerref} />
+      {cart.length!==0? (
       <div className="mx-20">
         <div className="mt-10">
           <span className="opacity-50">Home</span> /Cart
@@ -136,12 +137,13 @@ const Cart = () => {
 
         <div className=" p-1 mt-10">
           <div>
-            <div className="grid grid-cols-4 font-semibold  ">
-              <p>product</p>
-              <p>price</p>
-              <p>Quantity</p>
-              <p>Subtotal</p>
-            </div>
+              <div className="grid grid-cols-4 font-semibold  ">
+                <p>product</p>
+                <p>price</p>
+                <p>Quantity</p>
+                <p>Subtotal</p>
+              </div>
+
             <Products calculateSubtotal={calculateSubtotal} />
           </div>
           <div className="mt-3 flex justify-between pr-[5%]">
@@ -151,10 +153,10 @@ const Cart = () => {
                 returntoshop();
                 setupdated((prev) => !prev);
                 headerref.current.setCartvalue(0);
-                setTotal(0)
+                setTotal(0);
               }}
             >
-              Return to shop
+             Delete all
             </button>
             <button className="border-2 border-gray-300 text-sm font-semibold rounded-sm px-5 py-3 ml-4">
               update cart
@@ -175,6 +177,9 @@ const Cart = () => {
           </div>
         </div>
       </div>
+      ):(
+        <p className="text-3xl ml-[35%] mt-28 mb-32 ">There are no products in the cart</p>
+      )}
       <Footer />
     </>
   );

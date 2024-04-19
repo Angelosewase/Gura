@@ -7,14 +7,15 @@ import { wishlistProducts } from "../data/wishlist.js";
 const CartCount = (props) => {
   let count = props.cartValue;
   let display;
- if(count === 0){
-  display ="invisible"
-}
-
+  if (count === 0) {
+    display = "invisible";
+  }
 
   return (
     <>
-      <div className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}>
+      <div
+        className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}
+      >
         {count}
       </div>
     </>
@@ -23,36 +24,40 @@ const CartCount = (props) => {
 
 const WishlistCount = (props) => {
   let count = props.wishlistValue;
- let display
-  if(count === 0){
-   display ="invisible"
- }
+  let display;
+  if (count === 0) {
+    display = "invisible";
+  }
   return (
     <>
-      <div className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}>
+      <div
+        className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}
+      >
         {count}
       </div>
     </>
   );
 };
 
-const Header = forwardRef((props,ref) => {
+const Header = forwardRef((props, ref) => {
   const [profile, setProfile] = React.useState(false);
   let color = props.profiledivclicked ? "bg-red-500" : "";
 
-  const [cartValue,setCartvalue] = React.useState(cart.length)
-  const [wishlistValue,setwishlistvalue] = React.useState(wishlistProducts.length)
+  const [cartValue, setCartvalue] = React.useState(cart.length);
+  const [wishlistValue, setwishlistvalue] = React.useState(
+    wishlistProducts.length
+  );
 
-  useImperativeHandle(ref,()=>({
+  useImperativeHandle(ref, () => ({
     setCartvalue,
-    setwishlistvalue
-  }))
+    setwishlistvalue,
+  }));
 
   return (
     <>
       <HeaderTop />
       <div className="flex flex-row mt-3 w-full justify-between h-20 m-auto items-center border-b border-gray-400">
-        <h1 className=" ml-28 text-3xl font-medium">GURA</h1>
+        <h1 className=" lg:ml-28 sm:ml-10 text-3xl font-medium">GURA</h1>
         <ul className="flex flex-row w-80 justify-between font-500 ">
           <li>
             <Link to="/" className="hover:underline">
@@ -76,7 +81,7 @@ const Header = forwardRef((props,ref) => {
           </li>
         </ul>
 
-        <div className="flex gap-3 mr-24">
+        <div className="flex gap-3 lg:mr-24 sm:mr-12">
           <div>
             <label className="flex flex-row justify-between">
               <input
@@ -107,7 +112,7 @@ const Header = forwardRef((props,ref) => {
                 alt="the shopping cart image"
                 className="w-6"
               />
-              <CartCount cartValue ={cartValue}/>
+              <CartCount cartValue={cartValue} />
             </Link>
             {profile ? (
               ""

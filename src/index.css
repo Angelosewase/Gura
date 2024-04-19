@@ -7,3 +7,9 @@
         font-family: arial,sans-serif;
     }
 }
+@layer components{
+    .scrollbar-hidden::-webkit-scrollbar{
+        display: none;
+     }
+}
+

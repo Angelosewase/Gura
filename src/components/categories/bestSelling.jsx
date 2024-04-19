@@ -10,7 +10,7 @@ const Morebestesellingproducts = (props)=>{
   }
     return(
     <>
-       <div className="flex justify-evenly mr-28 flex-wrap">
+       <div className="flex gap-4 lg:mr-28 flex-wrap justify-evenly">
          {Products}
        </div>
     </>)
@@ -24,7 +24,7 @@ const BestSellingProducts= (props)=>{
    }
      return(
      <>
-        <div className="flex justify-evenly mr-28 flex-wrap">
+        <div className="flex gap-4 lg:mr-28 justify-evenly flex-wrap">
           {Products}
         </div>
      </>)

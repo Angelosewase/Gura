@@ -76,7 +76,7 @@ function MainContent(props) {
         <Explore updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
         <div></div>
       </div>
-      <div className="lg:ml-28 sm:ml-14 mr-36 mt-28 mb-48">
+      <div className="lg:ml-28 sm:ml-14 lg:mr-36 mt-28 mb-48">
         <NewArrivals />
       </div>
       <div>

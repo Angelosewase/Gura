@@ -8,6 +8,7 @@ import Account from "./pages/account"
 import Cart from "./pages/cart"
 import Checkout from "./pages/checkout"
 import WishList from "./pages/wishlist"
+import ProductDisplay from "./components/productDisplay"
 
 const router = createBrowserRouter([
   {
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
   {
     path:"/wishlist",
     element:<WishList />
+  },
+  {
+    path:"/product/:id",
+    element:<ProductDisplay />
   }
 ])
 

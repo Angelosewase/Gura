@@ -29,7 +29,7 @@ useImperativeHandle(ref,()=>({
 }))
 
 return <>
-<div className={`${props.display} gap-2 max-w-full grid-cols-6 flex-nowrap overflow-auto transition scroll-smooth `} ref={scrolldiv}>
+<div className={`${props.display} gap-2 max-w-full grid-cols-6 flex-nowrap overflow-auto transition scroll-smooth scrollbar-hidden `} ref={scrolldiv}>
   {salesProducts}
 </div>
 </>
