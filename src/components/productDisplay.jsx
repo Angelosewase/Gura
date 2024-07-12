@@ -33,7 +33,7 @@ const ProductDisplay = () => {
   return (
     <>
       <Header ref={headerref} />
-      <div className="grid grid-cols-1 md:grid-cols-2 px-20 gap-2 mx-2 md:mx-14 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:px-20 gap-2 mx-2 md:mx-14 mt-10">
         <div className="flex items-center justify-center shadow">
           <img src={product.image} alt="product image" className="w-72" />
         </div>
@@ -91,7 +91,7 @@ const ProductDisplay = () => {
             </button>
           </div>
 
-          <div className="mt-3 flex iemcs-center gap-4">
+          <div className="mt-3 flex flex-col lg:flex-row gap-4 ">
             <div className="flex mt-1">
               <button
                 className="border-2 border-gray-150 rounded py-3 text-base h-6 w-20 flex items-center justify-center hover:bg-red-500 hover:border-red-500 hover:text-white"
@@ -123,7 +123,7 @@ const ProductDisplay = () => {
               buy now
             </button>
             <button
-              className="rounded border-2 mx-1 py-1 px-2 text-xs border-gray-400"
+              className="rounded border-2 mx-1 py-1 px-2 text-xs border-gray-400 self-start"
               onClick={() => {
                 addtowhishlist(id);
                 updateheaderwishlist(wishlistProducts.length)
@@ -178,7 +178,7 @@ const ProductDisplay = () => {
             </div>
           </div>
 
-          <div>
+          <div className="grid grid-cols-2 md:flex">
             <Product {...products[9]} recommended={true} updateheader={updateheader}/>
           </div>
         </div>
