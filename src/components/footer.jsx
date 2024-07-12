@@ -11,7 +11,7 @@ function Footer(){
     return (
         <>
         <div className="bg-black ">
-         <div className="mt-10 grid lg:grid-cols-5 w-11/12 m-auto bg-black text-white opacity-90 pt-7 lg:items-left  md-items-center md:px-10 md:grid-cols-2 ">
+         <div className="mt-10 grid lg:grid-cols-5 md:w-11/12 m-auto bg-black text-white opacity-90 pt-7 lg:items-left  md-items-center md:px-10 md:grid-cols-2  justify-center md:justify-start">
             <div>
                 <h1 className="text-xl font-semibold mb-5">Exclusive</h1>
                 <h2 className="text-lg">subscribe</h2>

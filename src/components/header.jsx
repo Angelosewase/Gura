@@ -14,7 +14,7 @@ const CartCount = (props) => {
   return (
     <>
       <div
-        className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold ${display}`}
+        className={`absolute w-4 h-4 text-white rounded-full -top-1.5 -right-1 bg-red-500 text-xs flex items-center justify-center font-semibold  ${display}`}
       >
         {count}
       </div>
@@ -55,10 +55,11 @@ const Header = forwardRef((props, ref) => {
 
   return (
     <>
+
       <HeaderTop />
-      <div className="flex flex-row mt-3 w-full justify-between h-20 m-auto items-center border-b border-gray-400">
-        <h1 className=" lg:ml-28 sm:ml-10 text-3xl font-medium">GURA</h1>
-        <ul className="flex flex-row w-80 justify-between font-500 ">
+      <div className="flex flex-row mt-3 w-full justify-between h-14 md:h-20 m-auto items-center border-b border-gray-400">
+        <Link className=" lg:ml-28 ml-10 text-3xl font-medium "to="/">GURA</Link>
+        <ul className="lg:flex flex-row w-80 justify-between font-500 hidden">
           <li>
             <Link to="/" className="hover:underline">
               Home
@@ -82,7 +83,7 @@ const Header = forwardRef((props, ref) => {
         </ul>
 
         <div className="flex gap-3 lg:mr-24 sm:mr-12">
-          <div>
+          <div className=" hidden md:block">
             <label className="flex flex-row justify-between">
               <input
                 type="text"

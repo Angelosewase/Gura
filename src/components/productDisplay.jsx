@@ -7,7 +7,7 @@ import { wishlistProducts } from "../data/wishlist";
 import { products } from "../data/products";
 import { useParams } from "react-router-dom";
 
-const ProductDisplay = (props) => {
+const ProductDisplay = () => {
   const [quantity, setQuantity] = React.useState(1);
   let { id } = useParams();
   //  let product = products.find((product) => (product.id = id));

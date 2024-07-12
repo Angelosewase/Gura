@@ -41,7 +41,7 @@ const  WishlistProducts =({updated,updateheader,updateheaderwishlist})=>{
   />)
 
   return <>
-  <div className="grid grid-cols-6 gap-2">
+  <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-2 md:gap-4 ">
   {wishlist}
   </div>
   {wishlist.length === 0 ? <p className="text-2xl font-semibold ml-[20%]"> Oops! There are no products in the wishlist</p>:""}
@@ -66,7 +66,7 @@ const WishList = () => {
   return (
     <>
       <Header ref={headerref}/>
-      <div className="mx-20">
+      <div className=" px-4 lg:px-0 lg:mx-20">
         <div>
           <div className="flex justify-between items-center mb-6 mt-10">
             <p className="font-semibold">Wishlist ({wishlistProducts.length})</p>
@@ -86,7 +86,7 @@ const WishList = () => {
             <button className="border-2 px-4  py-1 rounded">See all</button>
             </div>
             
-            <div>
+            <div className="grid grid-cols-2 md:flex  ">
               <Product {...productTwo} recommended={true} updateheader={updateheader}/>
             </div>
           </div>

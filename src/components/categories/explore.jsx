@@ -24,7 +24,7 @@ useImperativeHandle(ref,()=>({
   handleCLick
 }))
   return(<>
-   <div className="flex justify-evenly mr-28 flex-wrap">
+   <div className=" grid grid-cols-2 md:flex md:justify-start gap-2 md:gap-4 lg:gap-0 justify-center lg:justify-evenly  lg:mr-28 flex-wrap">
     {Products}
    </div>
   </>)
@@ -40,7 +40,8 @@ function Explore(props){
     return (
         <>
           <div className="flex flex-row  w-11/12 justify-between ">
-            <div className="w-6/12">
+
+            <div className="w-full md:w-6/12">
               <div className="flex">
                 <button className="bg-red-500 w-3 h-6 rounded-sm"></button>
                 <p className="text-red-600 ml-2">Our products</p>
@@ -57,7 +58,7 @@ function Explore(props){
             </div>
           </div>
           <Ourproduts ref={productsref} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
-          <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4" onClick={handleclicl}>{buttonclicked ? "show less" : "view all products"}</button>
+          <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4 hidden md:block" onClick={handleclicl}>{buttonclicked ? "show less" : "view all products"}</button>
         </>
     )
 }

@@ -57,7 +57,7 @@ const CartProduct = (props) => {
   return (
     <>
       <div className="grid grid-cols-4  mt-8 border-b-2 border-gray-50 pb-4 ">
-        <div className="flex gap-5  items-center">
+        <div className="flex gap-5  items-center flex-col md:flex-row">
           <img src={props.image} alt="" className="w-10" />
           <p className="text-sm">{props.name}</p>
         </div>
@@ -99,7 +99,7 @@ const Checkoutprocessdetails = (props) => {
           <p className="text-sm">Total:</p>
           <span className="text-sm">${props.total.toFixed(2)}</span>
         </div>
-        <button className="bg-red-700 text-white rounded py-3 px-5 mx-20">
+        <button className="bg-red-700 text-white rounded py-3 px-5 lg:mx-20">
           <Link to={"/checkout"}> process to checkout</Link>
         </button>
       </div>
@@ -130,7 +130,7 @@ const Cart = () => {
     <>
       <Header ref={headerref} />
       {cart.length!==0? (
-      <div className="mx-20">
+      <div className="lg:mx-20 px-4 ">
         <div className="mt-10">
           <span className="opacity-50">Home</span> /Cart
         </div>
@@ -162,8 +162,8 @@ const Cart = () => {
               update cart
             </button>
           </div>
-          <div className="flex  pr-[5%] mt-20 gap-[25%]">
-            <div>
+          <div className="flex  pr-[5%] mt-20 md:gap-[25%] flex-col gap-4 md:flex-row">
+            <div className="flex flex-col gap-4">
               <input
                 type="text"
                 placeholder="coupon code"

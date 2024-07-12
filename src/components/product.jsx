@@ -35,7 +35,7 @@ const ProductIconDiv1 = (props) => {
   let data = props.data;
   return (
     <>
-      <div className="absolute top-2 right-2 ">
+      <div className="absolute md:top-2 md:right-2 top-2 right-2">
         <div
           className={`w-8 h-8 ${display} items-center justify-center bg-gray-100 rounded-full mb-1 hover:bg-gray-400`}
           onClick={() => {
@@ -126,10 +126,10 @@ function Product(props) {
 
   return (
     <>
-      <div className=" inline-block relative my-2 ">
+      <div className=" inline-block relative my-2 md:w-auto  ">
         <div>
           <div
-            className="h-56 w-56 flex justify-center border-2 rounded-lg shadow-sm hover:shadow-lg transition relative"
+            className="md:h-56 md:w-56 w-[165px] h-[165px] flex justify-center border-2 rounded-lg shadow-sm hover:shadow-lg transition relative "
             onMouseEnter={() => {
               addtocartdivref.current.classList.remove("invisible");
             }}
@@ -137,7 +137,7 @@ function Product(props) {
               addtocartdivref.current.classList.add("invisible");
             }}
           >
-            <img src={props.image} alt="" className="w-36 h-36 my-auto " />
+            <img src={props.image} alt="" className="md:w-36 md:h-36 w-24 h-24 my-auto " />
 
             <div
               className="absolute bottom-0 bg-black text-white w-full h-8 font-3xl flex justify-center rounded-sm invisible "
@@ -155,7 +155,7 @@ function Product(props) {
             </div>
           </div>
           <div className=" h-18 flex flex-col justify-center items-start ">
-            <h1 className="font-semibold w-56">{props.name}</h1>
+            <h1 className="font-semibold md:w-56 w-42">{props.name}</h1>
             <div>
               <span className="text-sm mr-2">
                 ${(props.priceCents / 100).toFixed(2)}
@@ -172,7 +172,7 @@ function Product(props) {
               <img
                 src={`/ratings/rating-${props.rating.stars * 10}.png`}
                 alt="the ratings image"
-                className="w-14 inline-block"
+                className=" w-14 inline-block"
               />
               <span className="text-sm">({props.rating.count})</span>
             </div>

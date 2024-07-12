@@ -4,11 +4,11 @@ import Header from "../components/header";
 const Top = () => {
   return (
     <>
-      <div className="flex justify-between mb-8">
-        <div className="ml-20 mt-10">
+      <div className="flex justify-between mb-8 px-4  lg:px-0">
+        <div className="lg:ml-20 mt-10 ">
           <span className="opacity-50">Home</span> /account
         </div>
-        <div className="mr-20 mt-10">
+        <div className="lg:mr-20 mt-10">
           <p>
             welcome! <span className="text-red-600">Sewase Angel</span>
           </p>
@@ -21,7 +21,7 @@ const Top = () => {
 const AccountDetailsCategories = (props) => {
   return (
     <>
-      <div className="ml-20 mb-4">
+      <div className="lg:ml-20 mb-4 ml-4">
         <div>
           <h2 className="font-semibold ">{props.header}</h2>
           <div className="ml-6 mt-2">
@@ -43,8 +43,8 @@ const Account = () => {
       <div className="mt-8">
         <Top />
 
-        <div className="grid grid-cols-4">
-          <div>
+        <div className="grid md:grid-cols-4 grid-cols-1">
+          <div className="hidden md:block">
             <AccountDetailsCategories
               header="Manage my account"
               categoryone="my profile"
@@ -59,13 +59,13 @@ const Account = () => {
             <AccountDetailsCategories header="My wishlist" />
           </div>
 
-          <div className="col-span-3 border-2 px-10 py-8 mr-20 border-gray-50 rounded-md">
+          <div className="col-span-3 lg:border-2 lg:px-10 py-8 lg:mr-20 border-gray-50 rounded-md  px-4 ">
             <h1 className="font-xl mb-2 text-red-500 font-semibold">
               Edit your profile
             </h1>
-            <form className="mr-20">
-              <div className="grid grid-cols-2 mb-3">
-                <div className="flex flex-col mr-6">
+            <form className="lg:mr-20  ">
+              <div className="grid grid-cols-2 mb-3 gap-2 md:gap-4">
+                <div className="flex flex-col md:mr-6">
                   <label htmlFor="fistname">First Name</label>
                   <input
                     className="border-2 bg-gray-100 p-2 rounded-md outline-none placeholder:text-gray-500 mt-1 mb-2"
@@ -74,7 +74,7 @@ const Account = () => {
                     placeholder="sewase"
                   />
                 </div>
-                <div className="flex flex-col mr-6">
+                <div className="flex flex-col md:mr-6">
                   <label htmlFor="lastname">Last Name</label>
                   <input
                     className="border-2 bg-gray-100 p-2 rounded-md outline-none placeholder:text-gray-500 mt-1 mb-2"
@@ -84,7 +84,7 @@ const Account = () => {
                   />
                 </div>
 
-                <div className="flex flex-col mr-6">
+                <div className="flex flex-col md:mr-6">
                   <label htmlFor="email">Email </label>
                   <input
                     className="border-2 bg-gray-100 p-2 rounded-md outline-none placeholder:text-gray-500 mt-1"
@@ -93,7 +93,7 @@ const Account = () => {
                     placeholder="email@example.com"
                   />
                 </div>
-                <div className="flex flex-col mr-6">
+                <div className="flex flex-col md:mr-6">
                   <label htmlFor="adress">Address </label>
                   <input
                     className="border-2 bg-gray-100 p-2 rounded-md outline-none placeholder:text-gray-500 mt-1"
@@ -103,7 +103,7 @@ const Account = () => {
                   />
                 </div>
               </div>
-              <div className="flex flex-col mr-6">
+              <div className="flex flex-col md:mr-6">
                 <h4>password changes</h4>
                 <input
                   className="border-2 my-1.5 rounded-md p-2 bg-gray-100 outline-none"
@@ -125,7 +125,7 @@ const Account = () => {
                 />
               </div>
 
-              <div className="mr-6 flex justify-end mt-4">
+              <div className="md:mr-6 flex justify-end mt-4">
                 <button type="button"  className="py-3 px-8 hover:bg-gray-100 rounded-sm">cancel</button>
                 <button className="bg-red-600 py-3 px-10 text-sm  ml-7 rounded-sm text-gray-100">save changes</button>
               </div>

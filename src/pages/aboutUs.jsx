@@ -54,7 +54,7 @@ function AboutMain() {
         <div className="w-4/12 mt-24 ml-20">
           <h1 className="text-3xl font-semibold my-8">Our Story</h1>
           <p className="text-gray-900">
-            Launched in 2015 ,Gura is a Rwanda's premier online shopping
+            Launched in 2015 ,Gura is a Rwanda&apos;s premier online shopping
             marketplace with an active presence in Rwanda,. Supported by wide
             range of tailored marketing, data and service solution, GURA has
             10,500 sallers and 300 brands and serves 3 million customers across

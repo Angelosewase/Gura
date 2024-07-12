@@ -52,8 +52,10 @@ function FlashSales(props) {
   }
   return (
     <>
-      <div className="flex flex-row  w-11/12 justify-between flex-wrap">
-        <div className="flex flex-row  w-6/12 justify-between flex-wrap">
+      <div className="flex flex-row  w-11/12 justify-between ">
+
+        <div className="flex flex-row w-[90%] md:w-6/12 justify-between flex-wrap ">
+
           <div>
             <div className="flex ">
                <button className="bg-red-500 w-3 h-6 rounded-sm"></button>
@@ -84,6 +86,7 @@ function FlashSales(props) {
             </div>
           </div>
         </div>
+
         <div className="flex flex-row items-center">
             <button className="w-8 h-8 rounded-full bg-gray-100 mx-1" onClick={()=>{handlescroll("left")}}>
                <img src={"/images/arrow-small-left.svg"} alt="the left arrow" className="w-8" />
@@ -98,7 +101,7 @@ function FlashSales(props) {
       
       <FlashsalesProducts display={display} ref={scrolldiv} updateheader={props.updateheader} updateheaderwishlist={props.updateheaderwishlist}/>
 
-      <button className="py-2 px-8 bg-red-500 rounded  text-white ml-[45%] mt-4" onClick={HandleDisplay}>{display == "flex" ? "view all products" : "show less products"}</button>
+      <button className="py-2 px-8 bg-red-500 rounded hidden lg:block text-white md:ml-[45%] mt-4" onClick={HandleDisplay}>{display == "flex" ? "view all products" : "show less products"}</button>
       <hr className="bg-gray-400 mt-8 mr-28"/>
     </>
   );

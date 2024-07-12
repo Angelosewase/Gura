@@ -1,4 +1,3 @@
-import React from "react";
 function NewArrivals() {
   return (
     <>
@@ -40,9 +39,9 @@ function NewArrivals() {
             />
 
             <div className="absolute text-white bottom-6 left-8">
-              <h3 className="text-xl font-semibold mb-3">Women's collection</h3>
+              <h3 className="text-xl font-semibold mb-3">Women&apos;s collection</h3>
               <p className="text-sm opacity-90">
-                Featured women's collection that <br />
+                Featured women&apos;s collection that <br />
                 gives you another vibe
               </p>
               <br />
